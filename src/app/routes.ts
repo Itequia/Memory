@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router'
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home.component'
 
 export const appRoutes: Routes = [
 	{ path: '', 				component: HomeComponent},
+	{ path: 'home',				redirectTo: ''},
 	{ path: 'game', 			loadChildren: './game/game.module#GameModule' },
-	{ path: 'home',				component: HomeComponent},
+	{ path: 'new-game', 		loadChildren: './new-game/new-game.module#NewGameModule' },
 	{ path: '*', 				redirectTo: 'game', 	pathMatch: 'full' }
 ]

@@ -8,18 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 export class CardComponent {
 
 	@Input() image: string = '/assets/img/card_default.jpg'
-	@Input() showCard: boolean = false
+	@Input() enableFlip: boolean = false
+	@Input() flipped: boolean = false
 
-	flipped: boolean = false
 	background: string = '/assets/img/card_background.png'
 
 	@Output() onClick: EventEmitter<undefined> = new EventEmitter<undefined>()
 
 	click() {
-		if (!this.showCard) {
-			this.flipped = !this.flipped
+		if (!this.enableFlip) {
 			this.onClick.emit()
 		}
 	}
-
 }

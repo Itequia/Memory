@@ -1,4 +1,4 @@
 <div class="card" (click)="click()">
-	<img *ngIf="!showCard && !flipped" [src]="background" alt="">
-	<img *ngIf="showCard || flipped" [src]="image" alt="">
+	<img *ngIf="!enableFlip && !flipped" [src]="background" alt="">
+	<img *ngIf="enableFlip || flipped" [src]="image" alt="">
 </div>
