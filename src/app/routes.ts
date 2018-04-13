@@ -6,5 +6,5 @@ export const appRoutes: Routes = [
 	{ path: 'home',				redirectTo: ''},
 	{ path: 'game', 			loadChildren: './game/game.module#GameModule' },
 	{ path: 'new-game', 		loadChildren: './new-game/new-game.module#NewGameModule' },
-	{ path: '*', 				redirectTo: 'game', 	pathMatch: 'full' }
+	{ path: '*', 				redirectTo: 'home', 	pathMatch: 'full' }
 ]

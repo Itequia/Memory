@@ -1,4 +1,4 @@
-<div class="card" (click)="click()">
+<div class="card" [class.active]="enableFlip" (click)="click()">
 	<img *ngIf="!enableFlip && !flipped" [src]="background" alt="">
 	<img *ngIf="enableFlip || flipped" [src]="image | safe" alt="">
 </div>
