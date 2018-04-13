@@ -1,8 +1,15 @@
+<div class="timer">
+	{{ timer }}
+</div>
 <div class="list">
-	<app-card
-		*ngFor="let card of cards"
-		[image]="card.img"
-		(onClick)="onClick(card)"
-	></app-card>
+	<div *ngFor="let card of cards" class="card">
+		
+		<app-card
+			[image]="card.img"
+			[enableFlip]="card.isCorrect"
+			[flipped]="card.flipped"
+			(onClick)="onClick(card)"
+		></app-card>
+	</div>
 </div>
 
