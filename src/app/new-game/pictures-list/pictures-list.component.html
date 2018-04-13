@@ -1,7 +1,7 @@
 <div class="pictures-list">
     <div class="row">
         <div class="col" *ngFor="let picture of pictures">
-            <app-card [enableFlip]="true"></app-card>
+            <app-card [enableFlip]="true" [image]="picture.img"></app-card>
         </div> 
     </div>
 </div>
