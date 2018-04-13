@@ -59,7 +59,7 @@ const createWindow = () => {
         const menu = Menu.buildFromTemplate(menuTemplate);
         Menu.setApplicationMenu(menu);
         //win.setMenu(null);
-        win.webContents.openDevTools();
+      //  win.webContents.openDevTools();
 
         // Emitted when the window is closed.
         win.on('closed', () => {

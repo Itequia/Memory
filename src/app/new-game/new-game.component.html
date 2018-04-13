@@ -7,14 +7,14 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-                <h4>Select a pictures directory:</h4>
+                <h3>Select a pictures directory:</h3>
                 <app-pictures-selector (onPicturesSelected)="onPicturesSelected($event)">                    
                 </app-pictures-selector>
             </div>
         </div>
         <div class="row" *ngIf="arePicturesLoaded">
             <div class="col-xs-12">
-                <h4>You'll play with these cards:</h4>
+                <h3>You'll play with these cards:</h3>
                 <app-pictures-list>                    
                 </app-pictures-list>
             </div>
