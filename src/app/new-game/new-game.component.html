@@ -14,7 +14,8 @@
         <div class="row" *ngIf="arePicturesLoaded">
             <div class="col-xs-12">
                 <h4>You'll play with these cards:</h4>
-                <app-pictures-list></app-pictures-list>
+                <app-pictures-list (onPicturesSelected)="onPicturesSelected($event)">                    
+                </app-pictures-list>
             </div>
         </div>
         <div class="row margin-top-30" *ngIf="arePicturesLoaded">

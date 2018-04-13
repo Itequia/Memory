@@ -12,7 +12,6 @@ export class PicturesService {
 
     constructor() {
         this._tempFilePath = app.getPath('userData') + this._tempFileName
-        console.log(this._tempFilePath)
     }
     
     setPictures(folder: string): Promise<void> {
@@ -20,7 +19,9 @@ export class PicturesService {
             window['fs'].readdir(folder, (error, files) => {
                 if (error) reject(error)
 
-                let images = files.filter(file => this._allowedExtensions.exec(file))
+                let images = 
+                    files.filter(file => this._allowedExtensions.exec(file))
+                    .map(image => folder + "/" + image)
                 
                 window['fs'].writeFile(this._tempFilePath, images, (err) => {
                     if (err) reject(error)
@@ -31,6 +32,14 @@ export class PicturesService {
     }
 
     getPictures(): Promise<string[]> {
-        return Promise.resolve(['','','','','','',''])
+        return new Promise<string[]>((resolve, reject) => {
+            window['fs'].readFile(this._tempFilePath, "utf8", (error, data) => {
+                if (error) reject(error)
+
+                console.log(data)
+                let images = data.split(',')
+                resolve(images)
+            })
+        })
     }
 }
