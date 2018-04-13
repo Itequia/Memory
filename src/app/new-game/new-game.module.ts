@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { NewGameComponent } from './new-game.component'
 import { PicturesSelectorComponent } from './pictures-selector/pictures-selector.component'
 import { PicturesListComponent } from './pictures-list/pictures-list.component'
+import { SharedModule } from '../shared/shared.module'
 
 const moduleRoutes: Routes = [
 	{ path: '', component: NewGameComponent }
@@ -12,7 +13,8 @@ const moduleRoutes: Routes = [
 @NgModule({
 	imports: [
 		RouterModule.forChild(moduleRoutes),
-		CommonModule
+        CommonModule,        
+		SharedModule
 	],
 	declarations: [
         NewGameComponent, 

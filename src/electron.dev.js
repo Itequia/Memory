@@ -12,8 +12,12 @@ const createWindow = () => {
     setTimeout(() => {
         // Create the browser window.
         win = new BrowserWindow({
-            width: 800,
-            height: 600,
+            height: 768,
+            width: 1024,
+            height: 768,
+            width: 1024,
+            minWidth: 1024,
+            minHeight: 768,
             icon: './src/favicon.ico'
         });
 
@@ -21,14 +25,7 @@ const createWindow = () => {
         win.loadURL(url.format({
             pathname: 'localhost:4200',
             protocol: 'http:',
-            slashes: true,
-            height: 768,
-            width: 1024,
-            minWidth: 1024,
-            minHeight: 768
-            // webPreferences: {
-            //     webSecurity: false
-            // }
+            slashes: true
         }));
 
         win.webContents.openDevTools();
