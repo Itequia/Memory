@@ -18,4 +18,18 @@ export class RecordsService {
 			)
 		})
 	}
+
+	getRecords(): Promise<any> {
+		return new Promise<void>((resolve, reject) => {
+			window['fs'].readFile(this._filePath,
+				(error, data) => {
+					if (error) reject(error)
+					console.log(this._filePath)
+					const array = data.toString().split('\n')
+					array.splice(-1, 1)
+					resolve(array.map( a => parseInt(a, 10) ))
+				}
+			)
+		})
+	}
 }
