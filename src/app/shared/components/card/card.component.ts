@@ -20,5 +20,4 @@ export class CardComponent {
 			this.onClick.emit()
 		}
 	}
-
 }

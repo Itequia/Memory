@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~flexboxgrid";
+
+@text-color: #212529;
+@white-color: #fff;
+@success-color: #28a745;
+
+html, body {
+    height:100%;
+    margin: 0;
+    font-family: 'Luckiest Guy', cursive;
+    color: @text-color;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7em 1.4em;
+    border-radius: 0.15em;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;  
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    
+    &:active {
+        top: 0.1em;
+    }
+
+    &.btn-main {
+        color: @white-color;
+        background-color: @success-color;
+    }
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+    
+.padding-25 {
+    padding: 25px;
+}
