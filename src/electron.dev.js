@@ -1,10 +1,29 @@
-const { app, BrowserWindow } = require('electron');
+const {app,BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
+const Menu = require('electron').Menu;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
+
+const menuTemplate = [
+    {
+        label: 'File',
+        submenu: [
+            {
+                label:'New Game', 
+                role:'new-game',
+                click() {
+                    win.webContents.send('new-game');     
+                }
+            },
+            {
+                role:'quit'
+            }
+        ]
+    }
+]
 
 const createWindow = () => {
     // set timeout to render the window not until the Angular 
@@ -18,7 +37,10 @@ const createWindow = () => {
             width: 1024,
             minWidth: 1024,
             minHeight: 768,
-            icon: './src/favicon.ico'
+            icon: './src/favicon.ico',
+            webPreferences: {
+                webSecurity: false
+            }
         });
 
         // and load the app.
@@ -27,7 +49,9 @@ const createWindow = () => {
             protocol: 'http:',
             slashes: true
         }));
-
+        const menu = Menu.buildFromTemplate(menuTemplate);
+        Menu.setApplicationMenu(menu);
+        //win.setMenu(null);
         win.webContents.openDevTools();
 
         // Emitted when the window is closed.

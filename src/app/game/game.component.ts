@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core'
 import Card from '../shared/models/card.model'
 import { RecordsService } from '../shared/services/records.service'
+import { PicturesService } from '../shared/services/pictures.service'
 
 @Component({
 	selector: 'app-game',
 	templateUrl: './game.component.html',
 	styleUrls: ['./game.component.less']
 })
+
 export class GameComponent implements OnInit {
 
 	cards: Card[]
@@ -16,40 +18,33 @@ export class GameComponent implements OnInit {
 	private currentCard: Card
 	private _setInterval: any
 
-	constructor(private _recordsService: RecordsService) { }
+	constructor(
+		private _recordsService: RecordsService,
+		private _picturesService: PicturesService
+	) { }
 
 	ngOnInit() {
+		this.cards = []
 		this.initTimer()
-		// FIXME: pillar los datos del fichero
-		this.cards = [
-			new Card('/assets/img/1.jpg'),
-			new Card('/assets/img/1.jpg')
-			// new Card('/assets/img/1.jpg'),
-			// new Card('/assets/img/2.jpg'),
-			// new Card('/assets/img/3.jpg'),
-			// new Card('/assets/img/4.gif'),
-			// new Card('/assets/img/5.jpg'),
-			// new Card('/assets/img/6.jpg'),
-			// new Card('/assets/img/1.jpg'),
-			// new Card('/assets/img/2.jpg'),
-			// new Card('/assets/img/3.jpg'),
-			// new Card('/assets/img/4.gif'),
-			// new Card('/assets/img/5.jpg'),
-			// new Card('/assets/img/6.jpg')
-		]
-		this.cards = this.cards.sort( (a: Card, b: Card) => a.position - b.position )
+		this._picturesService.getPictures().then((pictures) => {
+			pictures.forEach(item => {
+				this.cards.push(new Card(item))
+				this.cards.push(new Card(item))
+			})
 
+			this.cards = this.cards.sort((a: Card, b: Card) => a.position - b.position)
+		})
 	}
 
 	onClick(cardClicked: Card) {
 		cardClicked.flipped = !cardClicked.flipped
-		setTimeout( () => this.click(cardClicked), 1000)
+		setTimeout(() => this.click(cardClicked), 500)
 	}
 
 	private click(cardClicked: Card) {
 		if (this.cardFlipped) {
 			if (cardClicked.img === this.currentCard.img && cardClicked !== this.currentCard) {
-				this.cards.filter( c => c.img === cardClicked.img ).map( c => c.isCorrect = true )
+				this.cards.filter(c => c.img === cardClicked.img).map(c => c.isCorrect = true)
 				this.checkCorrect()
 			} else {
 				cardClicked.flipped = !cardClicked.flipped
@@ -65,11 +60,11 @@ export class GameComponent implements OnInit {
 	}
 
 	private initTimer() {
-		this._setInterval = setInterval( () => this.timer++, 1000 )
+		this._setInterval = setInterval(() => this.timer++, 1000)
 	}
 
 	private checkCorrect() {
-		if (!this.cards.some( c => c.isCorrect === false )) this.correct()
+		if (!this.cards.some(c => c.isCorrect === false)) this.correct()
 	}
 
 	private correct() {
