@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
 import { appRoutes } from './routes'
+import { SharedModule } from './shared/shared.module'
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { appRoutes } from './routes'
 	],
 	imports: [
 		RouterModule.forRoot(appRoutes),
-		BrowserModule
+		BrowserModule,
+		SharedModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
