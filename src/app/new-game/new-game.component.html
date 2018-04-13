@@ -8,13 +8,15 @@
         <div class="row">
             <div class="col-xs-12">
                 <h4>Select a pictures directory:</h4>
-                <app-pictures-selector></app-pictures-selector>
+                <app-pictures-selector (onPicturesSelected)="onPicturesSelected($event)">                    
+                </app-pictures-selector>
             </div>
         </div>
         <div class="row" *ngIf="arePicturesLoaded">
             <div class="col-xs-12">
                 <h4>You'll play with these cards:</h4>
-                <app-pictures-list></app-pictures-list>
+                <app-pictures-list>                    
+                </app-pictures-list>
             </div>
         </div>
         <div class="row margin-top-30" *ngIf="arePicturesLoaded">

@@ -18,7 +18,10 @@ const createWindow = () => {
             width: 1024,
             minWidth: 1024,
             minHeight: 768,
-            icon: './src/favicon.ico'
+            icon: './src/favicon.ico',
+            webPreferences: {
+                webSecurity: false
+            }
         });
 
         // and load the app.
