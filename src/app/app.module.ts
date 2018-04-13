@@ -4,6 +4,7 @@ import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
 import { appRoutes } from './routes'
 import { PicturesService } from './shared/services/pictures.service'
+import { SharedModule } from './shared/shared.module'
 
 @NgModule({
 	declarations: [
@@ -11,7 +12,8 @@ import { PicturesService } from './shared/services/pictures.service'
 	],
 	imports: [
 		RouterModule.forRoot(appRoutes),
-		BrowserModule
+		BrowserModule,
+		SharedModule
 	],
 	providers: [ PicturesService ],
 	bootstrap: [AppComponent]

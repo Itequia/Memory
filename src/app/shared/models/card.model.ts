@@ -1,7 +1,8 @@
 export default class Card {
 	constructor(
-		private url: string,
-		private flipped: boolean = false,
-		private isCorrect: boolean = false
+		public img: string,
+		public flipped: boolean = false,
+		public isCorrect: boolean = false,
+		public position: number = Math.floor(Math.random() * 100)
 	) { }
 }

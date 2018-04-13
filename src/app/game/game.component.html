@@ -1,3 +1,8 @@
-<p>
-  game works!
-</p>
+<div class="list">
+	<app-card
+		*ngFor="let card of cards"
+		[image]="card.img"
+		(onClick)="onClick(card)"
+	></app-card>
+</div>
+
