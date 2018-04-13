@@ -19,6 +19,13 @@ const menuTemplate = [
                 }
             },
             {
+                label:'Records', 
+                role:'records',
+                click() {
+                    win.webContents.send('records');     
+                }
+            },
+            {
                 role:'quit'
             }
         ]

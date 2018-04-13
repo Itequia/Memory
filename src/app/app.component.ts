@@ -13,3 +13,8 @@ ipc.on('new-game', function(sender) {
 	var value = (location.href).split('/');
 	location.href = (value[0] + '/new-game');
 });
+
+ipc.on('records', function(sender) {
+	var value = (location.href).split('/');
+	location.href = (value[0] + '/records');
+});
