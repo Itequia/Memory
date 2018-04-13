@@ -6,7 +6,7 @@ const app = window['remote'].app
 export class PicturesService {  
     
     private _tempFileName: string = "/memory-temp.txt"
-    private _allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+    private _allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
 
     private _tempFilePath: string
 
@@ -36,7 +36,6 @@ export class PicturesService {
             window['fs'].readFile(this._tempFilePath, "utf8", (error, data) => {
                 if (error) reject(error)
 
-                console.log(data)
                 let images = data.split(',')
                 resolve(images)
             })

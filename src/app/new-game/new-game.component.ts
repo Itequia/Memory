@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewGameComponent implements OnInit {
 
-
     arePicturesLoaded: boolean
 
     constructor() { }
@@ -15,4 +14,7 @@ export class NewGameComponent implements OnInit {
     ngOnInit() {
     }
 
+    onPicturesSelected(event): void {
+        this.arePicturesLoaded = true
+    }
 }
