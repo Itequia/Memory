@@ -1,0 +1,26 @@
+<div class="new-game">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1>NEW GAME</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Select a pictures directory:</h4>
+                <app-pictures-selector></app-pictures-selector>
+            </div>
+        </div>
+        <div class="row" *ngIf="arePicturesLoaded">
+            <div class="col-xs-12">
+                <h4>You'll play with these cards:</h4>
+                <app-pictures-list></app-pictures-list>
+            </div>
+        </div>
+        <div class="row" *ngIf="arePicturesLoaded">
+            <div class="col-xs-12">
+                <a class="btn btn-main">START GAME</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,7 +21,14 @@ const createWindow = () => {
         win.loadURL(url.format({
             pathname: 'localhost:4200',
             protocol: 'http:',
-            slashes: true
+            slashes: true,
+            height: 768,
+            width: 1024,
+            minWidth: 1024,
+            minHeight: 768
+            // webPreferences: {
+            //     webSecurity: false
+            // }
         }));
 
         win.webContents.openDevTools();
