@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import Card from '../shared/models/card.model'
-// import { remote } from 'electron'
-// const { dialog } = remote
+import { RecordsService } from '../shared/services/records.service'
 
 @Component({
 	selector: 'app-game',
@@ -17,12 +16,14 @@ export class GameComponent implements OnInit {
 	private currentCard: Card
 	private _setInterval: any
 
-	constructor() { }
+	constructor(private _recordsService: RecordsService) { }
 
 	ngOnInit() {
 		this.initTimer()
 		// FIXME: pillar los datos del fichero
 		this.cards = [
+			// new Card('/assets/img/1.jpg'),
+			// new Card('/assets/img/1.jpg'),
 			new Card('/assets/img/1.jpg'),
 			new Card('/assets/img/2.jpg'),
 			new Card('/assets/img/3.jpg'),
@@ -37,6 +38,7 @@ export class GameComponent implements OnInit {
 			new Card('/assets/img/6.jpg')
 		]
 		this.cards = this.cards.sort( (a: Card, b: Card) => a.position - b.position )
+
 	}
 
 	onClick(cardClicked: Card) {
@@ -72,7 +74,7 @@ export class GameComponent implements OnInit {
 
 	private correct() {
 		clearInterval(this._setInterval)
-		// TODO: abrir un dialog
-		// dialog.showOpenDialog({})
+		alert(`Felicidades, has tardado ${this.timer} segundos. ¡Todo un record!`)
+		this._recordsService.setRecord(this.timer)
 	}
 }
