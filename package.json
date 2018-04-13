@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "dev": "concurrently \"ng serve\" \"npm run electron\"",
     "start": "concurrently \"ng serve\" \"npm run electron\"",
     "build": "ng build --prod",
     "test": "ng test",
@@ -23,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
+    "flexboxgrid": "^6.3.1",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },

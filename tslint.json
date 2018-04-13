@@ -10,10 +10,7 @@
       true,
       "check-space"
     ],
-    "curly": true,
-    "deprecation": {
-      "severity": "warn"
-    },
+    //"curly": true, disabled mandatory parentheses on if statements
     "eofline": true,
     "forin": true,
     "import-blacklist": [
@@ -24,13 +21,13 @@
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "tabs"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
     "max-line-length": [
       true,
-      140
+      120
     ],
     "member-access": false,
     "member-ordering": [
@@ -60,10 +57,6 @@
     "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
     "no-misused-new": true,
     "no-non-null-assertion": true,
     "no-shadowed-variable": true,
@@ -73,14 +66,14 @@
     "no-trailing-whitespace": true,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
+    // "no-use-before-declare": true, // Throws warning on vscode
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
       true,
       "check-open-brace",
       "check-catch",
-      "check-else",
+      // "check-else",
       "check-whitespace"
     ],
     "prefer-const": true,
@@ -91,12 +84,13 @@
     "radix": true,
     "semicolon": [
       true,
-      "always"
+      "never"
     ],
     "triple-equals": [
       true,
       "allow-null-check"
     ],
+    "typedef": [true, "member-variable-declaration", "property-declaration"],    
     "typedef-whitespace": [
       true,
       {
@@ -107,6 +101,7 @@
         "variable-declaration": "nospace"
       }
     ],
+    "typeof-compare": true,
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
@@ -117,19 +112,20 @@
       "check-separator",
       "check-type"
     ],
-    "directive-selector": [
-      true,
-      "attribute",
-      "app",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "app",
-      "kebab-case"
-    ],
-    "no-output-on-prefix": true,
+    // "directive-selector": [
+    //   true,
+    //   "attribute",
+    //   "app",
+    //   "camelCase"
+    // ],
+    // "component-selector": [  mandatory component selector beginning with prefix app
+    //   true,
+    //   "element",
+    //   "app",
+    //   "kebab-case"
+    // ],
+    "angular-whitespace": [true, "check-interpolation"],
+    "no-output-on-prefix": false, // contrary to angular style guide
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
