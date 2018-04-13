@@ -4,7 +4,12 @@ import { NgModule } from '@angular/core'
 import { AppComponent } from './app.component'
 import { RouterModule } from '@angular/router'
 import { appRoutes } from './routes'
+<<<<<<< HEAD
 import { HomeComponent } from './home/home.component';
+=======
+import { SharedModule } from './shared/shared.module'
+
+>>>>>>> master
 
 @NgModule({
 	declarations: [
@@ -12,7 +17,8 @@ import { HomeComponent } from './home/home.component';
 	],
 	imports: [
 		RouterModule.forRoot(appRoutes),
-		BrowserModule
+		BrowserModule,
+		SharedModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

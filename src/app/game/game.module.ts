@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { Routes, RouterModule } from '@angular/router'
 import { GameComponent } from './game.component'
+import { SharedModule } from '../shared/shared.module'
 
 const moduleRoutes: Routes = [
 	{ path: '', component: GameComponent }
@@ -10,6 +11,7 @@ const moduleRoutes: Routes = [
 @NgModule({
 	imports: [
 		RouterModule.forChild(moduleRoutes),
+		SharedModule,
 		CommonModule
 	],
 	declarations: [GameComponent]
